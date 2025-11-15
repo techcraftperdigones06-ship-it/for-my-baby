@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Love Website</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg,#FFD6E0,#FFB6C1,#FF9EB7);
+      overflow-x:hidden;
+    }
+
+    /* FLOATING HEARTS */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      color: #ff79a6;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity:0.8;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity:0.9; }
+      100% { transform: translateY(-120vh) scale(1.8); opacity:0; }
+    }
+
+    /* GENERAL COMPONENTS */
+    .center{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .hidden{ display:none; }
+
+    /* SECRET CODE PAGE */
+    #lockScreen{
+      height:100vh;
+      flex-direction:column;
+      text-align:center;
+      padding:20px;
+    }
+    .modal{
+      background:white;
+      padding:30px;
+      border-radius:18px;
+      width:420px;
+      max-width:90%;
+      box-shadow:0 8px 25px rgba(0,0,0,.12);
+    }
+    .title{
+      font-family: 'Great Vibes', cursive;
+      font-size:38px;
+      color:#c43a62;
+      margin-bottom:15px;
+    }
+    .input{
+      width:100%;
+      padding:14px;
+      border-radius:10px;
+      border:2px solid #ff9eb7;
+      font-size:18px;
+      box-sizing:border-box;
+      margin-bottom:15px;
+    }
+    .btn{
+      padding:12px 20px;
+      background:#ff5f8e;
+      border:none;
+      border-radius:10px;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+    #msg{
+      color:#c43a62;
+      margin-top:12px;
+      display:none;
+    }
+
+    /* NAVIGATION */
+    nav{
+      display:flex;
+      gap:15px;
+      padding:20px;
+      justify-content:center;
+      background:rgba(255,255,255,0.55);
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(6px);
+      z-index:5;
+    }
+    nav button{
+      background:#ffb3c6;
+      border:none;
+      padding:10px 18px;
+      border-radius:22px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    nav button.active{
+      background:#ff5f8e;
+      color:white;
+    }
+
+    /* PAGE SECTIONS */
+    section{
+      display:none;
+      padding:40px 20px;
+      max-width:900px;
+      margin:auto;
+    }
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:20px;
+      box-shadow:0 8px 25px rgba(0,0,0,.10);
+    }
+
+    /* GALLERY STYLES */
+    .gallery {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .gallery .box {
+      width: 240px;
+      height: 160px;
+      background: #eee;
+      overflow: hidden;
+      border-radius: 6px;
+      display: block;
+    }
+    .gallery .box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* fills box while preserving aspect */
+      display: block;
+    }
+
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap');
+
+  </style>
+</head>
+<body>
+
+<!-- FLOATING HEARTS GENERATOR -->
+<script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+  setInterval(createHeart, 600);
+</script>
+
+<!-- ================= SECRET CODE SCREEN ================= -->
+<div id="lockScreen" class="center">
+  <div class="modal">
+    <div class="title">Enter the secret code</div>
+    <input class="input" id="code" placeholder="Type code here...">
+    <button class="btn" id="enterBtn">Enter</button>
+    <div id="msg">Wrong code, mahal — try again 💌</div>
+  </div>
+</div>
+
+<!-- ================= MAIN WEBSITE ================= -->
+<div id="main" class="hidden">
+
+  <!-- NAVIGATION -->
+  <nav>
+    <button class="navBtn active" data-page="loveLetter">Love Letter</button>
+    <button class="navBtn" data-page="music">Music</button>
+    <button class="navBtn" data-page="notes">Notes</button>
+    <button class="navBtn" data-page="gallery">Gallery</button>
+  </nav>
+
+  <!-- LOVE LETTER PAGE -->
+  <section id="loveLetter" style="display:block;">
+    <div class="card">
+      <h1 style="font-family:'Great Vibes',cursive;font-size:50px;color:#c43a62;margin-top:0">
+        My Dearest Love
+      </h1>
+      <p style="color:#555;line-height:1.8;font-size:18px;">
+        Happy Monthsary, mahal kooo pasaway 😘
+
+        Mahal, grabe… isang buwan na pala tayo. Hindi ko na napansin dahil pakiramdam ko ilang taon na tayong magkasama. 
+        Baka dahil sa lahat ng away, lambingan, at pag-unawa na nalampasan natin together. Hehe, mwuah 🫶🏼
+
+        Mahal, alam mo… hindi ko talaga in-expect na magmamahal ulit ako after lahat ng trauma at sakit na iniwan ng past ko.
+        Sabi ko noon, ayoko na, pagod na pagod na ako—ubos na ubos yung puso ko, parang zero na battery. Pero nung dumating ka… bigla akong nagka 2% ulit. 
+        Tapos araw-araw, ikaw yung nagta-top up. Ngayon nasa 500% na siguro, at patuloy pang nadadagdagan hanggang pagtanda natin. Million-million pa yan mahal—lifetime battery ‘to, 
+        dahil ikaw ang charger ko. 😘💖
+
+        Asawa ko, maybe hindi ikaw yung “first time,” pero ikaw naman yung huling beses, yung last chapter, yung forever ko. 
+        Kasi binigyan mo ako ng lakas para maniwala ulit sa love… kahit ang dami kong takot, kahit ang dami kong dinaanan, kinaya ko dahil nandyan ka. 
+        Lagi kang nakikinig sa akin, lagi kang nagbibigay ng advice, lagi kang nandyan kahit lagi akong pikon, makulit, matigas ulo. At kahit ganon ako… mahal mo pa rin ako ng sobra. 🥺
+
+        Napaka-appreciated ko po lahat ng sweetness mo, pag-unawa mo, loyalty mo, at care mo. Hindi ko in-expect na may tao pa palang ganito kabait at ganito ka-dedicated sa akin. 
+        Ang swerte-swerte ko dahil ikaw yung kasama ko—kahit LDR tayo, ramdam ko araw-araw na ikaw yung tahanan ko. Distance can’t stop the love we give each other, lalo na yung effort mo, mahal. 
+        Kahit malayo, ikaw yung pinakamalapit sa puso ko.
+
+        Sana, mahal, kayanin natin lahat ng challenges na darating—LDR man, misunderstandings, busy days, or anything pa. Sana palagi nating pipiliin ang isa’t isa, lalo na sa mga panahon na mahirap.
+        Kahit may araw na hindi tayo pipiliin ng sitwasyon, sana piliin pa rin natin mag-stay, mag-fix, mag-adjust at mag-grow together.
+
+        Happy happy first monthsary, mahal kooo 🥺❤️
+        Here’s to many more months, years, and a whole lifetime with you.
+        Still counting… and still falling in love with you every single day.
+        I love you very, very much, mahal koooo 🥺🥰💗  
+      </p>
+    </div>
+  </section>
+
+  <!-- MUSIC PAGE -->
+  <section id="music">
+    <div class="card">
+      <h2 style="font-family:'Great Vibes',cursive;font-size:40px;color:#c43a62;margin-top:0">
+        Songs That Feel Like You
+      </h2>
+      <ul style="font-size:18px;color:#555;line-height:2.2;">
+        <li>🌸 Taylor Swift – Lover</li>
+        <li>🌸 Lauv – I Like Me Better</li>
+        <li>🌸 Bruno Major – Nothing</li>
+        <li>🌸 Adie ft. Janine – Mahika</li>
+        <li>🌸 Zack Tabudlo – Give Me Your Forever</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- NOTES PAGE -->
+  <section id="notes">
+    <div class="card">
+      <h2 style="font-family:'Great Vibes',cursive;font-size:40px;color:#c43a62;margin-top:0">
+        Little Notes for You
+      </h2>
+      <p style="color:#555;font-size:18px;line-height:1.8;">
+        • Drink water always, mahal. <br>
+        • Rest if your heart or mind feels heavy. <br>
+        • Don’t forget how precious you are. <br>
+        • I’m always here, even on quiet days. <br>
+        • I love you more than words can explain. <br>
+      </p>
+    </div>
+  </section>
+
+  <!-- GALLERY PAGE -->
+  <section id="gallery">
+    <div class="card">
+      <h2 style="font-family:'Great Vibes',cursive;font-size:40px;color:#c43a62;margin-top:0">
+        Favorite Memories
+      </h2>
+      <p style="color:#555;font-size:18px;">Add your photos here:</p> 
+      <input id="imgPick" type="file" accept="image/*">
+      <div class="gallery">
+        <div class="box">
+          <img src="c:\Users\Jay Olaco\OneDrive\Desktop\Visual Code\Monthsary\image\9a4ea132-5c43-43f9-aafc-145028cb623f.jpg" alt="My Picture">
+        </div>
+        <div class="box">
+          <img src="c:\Users\Jay Olaco\OneDrive\Desktop\Visual Code\Monthsary\image\64e819f6-20ca-4fab-9a07-e340a9844f1e.jpg" alt="Gallery item">
+        </div>
+        <div class="box">
+          <img src="c:\Users\Jay Olaco\OneDrive\Desktop\Visual Code\Monthsary\image\155c4d29-9db2-42bf-a04b-b0e55bfa89c9.jpg" alt="Gallery item">
+        </div>
+        <div class="box">
+          <img src="c:\Users\Jay Olaco\OneDrive\Desktop\Visual Code\Monthsary\image\dedf0ce1-e124-4faa-8cbd-715f11d8b593.jpg" alt="Gallery item">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- =============== JAVASCRIPT FOR UNLOCK + NAVIGATION =============== -->
+<script>
+  const SECRET = "FOREVER"; // Secret code
+  
+  const lockScreen = document.getElementById("lockScreen");
+  const main = document.getElementById("main");
+  const code = document.getElementById("code");
+  const msg = document.getElementById("msg");
+
+  const enter = document.getElementById("enterBtn");
+  enter.onclick = () => {
+    if(code.value.trim().toUpperCase() === SECRET){
+      lockScreen.style.display = "none";
+      main.classList.remove("hidden");
+    } else {
+      msg.style.display = "block";
+      setTimeout(()=> msg.style.display="none",1500);
+    }
+  };
+
+  code.addEventListener("keyup", e => {
+    if(e.key === "Enter") enter.click();
+  });
+
+  // NAVIGATION TABS
+  const navBtns = document.querySelectorAll(".navBtn");
+  const pages = document.querySelectorAll("section");
+
+  navBtns.forEach(btn=>{
+    btn.onclick = () => {
+      navBtns.forEach(b=> b.classList.remove("active"));
+      btn.classList.add("active");
+
+      pages.forEach(p=> p.style.display="none");
+      document.getElementById(btn.dataset.page).style.display="block";
+    };
+  });
+
+  // JavaScript
+  document.getElementById('imgPick').addEventListener('change', async (e) => {
+    const f = e.target.files?.[0];
+    if (!f) return;
+    const url = URL.createObjectURL(f);
+    const img = document.querySelector('.gallery .box img');
+    img.src = url;
+    img.onload = () => URL.revokeObjectURL(url);
+  });
+</script>
+
+</body>
+</html>
